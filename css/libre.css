@@ -1,0 +1,20 @@
+
+
+p{text-align: center;
+         color :goldenrod}
+
+body{background-color: greenyellow;}
+ .tip {
+                font-family: sans-serif;
+                color: blue;
+                font-size: 12px
+            }
+ table{
+        color: fuchsia;
+        margin:0 auto;
+        border-collapse: collapse;}
+ 
+ table,th,td {border: 1px solid black;}
+ th,td {padding: 5px;}
+    
+            
