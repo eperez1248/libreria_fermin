@@ -12,7 +12,7 @@ if (isset($_REQUEST['error'])){
         <script src="js/libre.js"></script>   
     </head>
     <body>   <h2><p>Bienvenido a BIBLIOTECA FERMIN</p></h2>                
-        <form  method="POST" action="login_1.php" >
+        <form  method="POST" action="login.php" >
             <fieldset>
                 <legend>ACCESO AL SISTEMA DE BIBLIOTECA FERMIN</legend>
                 <p id= "tip" class= "tip" >   </p> 

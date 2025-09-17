@@ -6,7 +6,9 @@ if (!isset($_REQUEST['usuario'])){
 }
 $usuario=$_REQUEST['usuario'];
 $pass=$_REQUEST['pass'];
+
 $pasa = new accede($usuario,$pass);
+
 if ($pasa->entra()){
     session_start();
     $_SESSION['perfil']=$pasa->perfil();
