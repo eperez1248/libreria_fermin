@@ -2,8 +2,6 @@
 
 class ficherodatos {
     
-    
-
     private $nombref;
 
     public function __construct($n) {

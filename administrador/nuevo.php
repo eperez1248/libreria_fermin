@@ -18,3 +18,4 @@ $tabla = $verArray->tabla();
 echo "<p>".$tabla."</p>";
 
 include_once '../includes/pie.php';
+
