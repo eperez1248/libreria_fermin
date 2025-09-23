@@ -1,0 +1,13 @@
+{
+    "name": "vendor/libreria-mysql",
+    "description": "Description of project libreria_mysql.",
+    "authors": [
+        {
+            "name": "USER",
+            "email": "your@email.here"
+        }
+    ],
+    "require": {
+        "dompdf/dompdf": "dev-master"
+    }
+}

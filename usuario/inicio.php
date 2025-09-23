@@ -1,20 +1,39 @@
 <?php
 include_once '../includes/cabecera.php';
-include_once '../includes/clases.php';
-include_once '../includes/datosconexion.php';
 include_once '../includes/objconexion.php';
+include_once '../includes/clases.php';
+
+$usu=$_SESSION['usuario'];
+$id=$_SESSION['id_usuario'];
+
+$datos_base= new Conexion("../");
+$datos_base->conecta();
+$array_datos=$datos_base->consulta("SELECT id_cliente FROM clientes where id_usuarios=".$id.";");
+foreach ($array_datos as $value) {
+    $value=$array_datos[0]['id_cliente'];   
+}
+
+$sql="SELECT libros.titulo,autor.nombre,autor.apellidos,alquilan.fecha_devolucion
+    FROM clientes,alquilan,libros,autor
+WHERE clientes.id_cliente=alquilan.id_cliente AND alquilan.id_libro=libros.id_libros 
+AND autor.id_autor=libros.id_autor and clientes.id_cliente=".$value;
+
+$mitabla_datos=$datos_base->consulta($sql);
 
 
-$mibase = new Conexion("../");
-$mibase->conecta();
-$sql = "SELECT usuarios.id_usuarios, libros.titulo, autor.nombre, "
-        . "alquilan.fecha_devolucion FROM usuarios, clientes, alquilan, libros, "
-        . "autor WHERE libros.id_autor=autor.id_autor AND libros.id_libros=alquilan.id_libro "
-        . "AND alquilan.id_cliente=clientes.id_cliente AND clientes.id_usuarios=usuarios.id_usuarios "
-        . "AND usuarios.id_usuarios='".$_SESSION['id_usuario']."'";
-$miarray=$mibase->consulta($sql);
-$verArray = new tabla_datos($miarray);
-$tabla = $verArray->tabla();
-echo "<p>".$tabla."</p>";
+$mitabla = new tabla_datos($mitabla_datos);
+echo "<p>hola ".$usu." tus datos de alquileres son</p>";
+$mitabla->ver_tabla();
 
+?>
+    
+    <?php
+    
+//}
+
+
+
+echo "<p><a href='mipdf.php'>Imprimir en pdf</a></p></td></tr></table>";
+
+echo "<p><a href='salir.php'>Salir</a></p>";
 include_once '../includes/pie.php';
